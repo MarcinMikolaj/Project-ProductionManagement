@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<form th:method="post" th:action="@{/removeMaterialOrder}">
+<input th:name="identificator" type="text" placeholder="identificator"></input>
+<button type="submit">Remove</button>
+<button type="reset">Clear</button>
+<button><a th:href="@{/materialOrderMenu}">Material order menu</a></button>
+<button><a th:href="@{/}">Home</a></button>
+</form>
+
+
+</html>

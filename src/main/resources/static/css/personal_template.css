@@ -1,0 +1,91 @@
+
+body {
+	background-color: #252729;
+}
+
+.container {
+width: 500px;
+min-height: 680px;
+margin-top:3%;
+margin-left: 35%;
+margin-right:50%;
+background-color: #1f2122;
+border-radius:12px;
+}
+
+
+
+.input {
+	margin-left: 7%;
+	padding: 12px;
+	background-color: #313232;		
+	width:400px;
+	border: 1px solid #313232;
+	border-radius:6px;
+	
+}
+
+.buttonRegister {
+	background-color:#fa571e;
+	border: 1px solid #fa571e;
+	width:100%;
+	border-radius:6px;
+	padding: 16px;	
+	font-size: 18px;
+	font-family: 'Palatino Linotype';
+}
+
+.buttonHome {
+	background-color:#313232;
+	border: 1px solid #fa571e;
+	border-radius:6px;
+	padding: 13px 25px;	
+}
+
+.buttonClear {
+	background-color:#313232;
+	border: 1px solid #fa571e;
+	color:white;
+	
+	border-radius:6px;
+	padding: 13px 25px;	
+}
+
+::placeholder {
+	text-align:left;
+	color: white;
+}
+
+.inputTopText{
+	margin-left: 7%;
+	color:white;
+	font-family: 'Palatino Linotype';
+}
+
+.title {
+	padding: 20px 10px ;
+	border-radius:12px 12px 0px 0px;
+	text-align:center;
+	background-color: #313232;
+	color: white;
+	font-family: 'Palatino Linotype';
+	
+}
+
+.noHiper {
+	text-decoration:none;
+	color:white;"
+}
+
+.select {
+	
+	margin-left: 7%;
+	padding: 12px;
+	background-color: #313232;	
+    color: white;	
+	width:400px;
+	border: 1px solid #313232;
+	border-radius:6px;
+	
+	
+}

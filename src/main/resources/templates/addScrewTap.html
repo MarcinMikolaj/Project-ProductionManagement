@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/general_szablon.css}" rel="stylesheet" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/returnTool/addScrewTap}" th:object="${screwTap}">
+<div class="containerScrewTap">
+<h1 class="containerTitle">Add Screw Tap</h1>
+
+<br></br>
+<p class="inputTitle">Identificator</p>
+<input class="input" th:field="*{identificator} "th:type="text" placeholder="identificator"></input>
+<br></br>
+<p class="inputTitle">Brand</p>
+<input class="input" th:field="*{brand} "th:type="text" placeholder="brnad"></input>
+<br></br>
+<p class="inputTitle">Total length</p>
+<input class="input" th:field="*{totalLength} "th:type="text" placeholder="total length"></input>
+<br></br>
+<p class="inputTitle">Working length</p>
+<input class="input" th:field="*{workongLength} "th:type="text" placeholder="working length"></input>
+<br></br>
+<p class="inputTitle">Thread</p>
+<input class="input" th:field="*{thread} "th:type="text" placeholder="thread"></input>
+<br></br>
+<p class="inputTitle">Thread type</p>
+<input class="input" th:field="*{threadType} "th:type="text" placeholder="thread type"></input>
+<br></br>
+<p class="inputTitle">Thread profile</p>
+<input class="input" th:field="*{threadProfile} "th:type="text" placeholder="thread profile"></input>
+<br></br>
+<p class="inputTitle">Hardness</p>
+<input class="input" th:field="*{hardness} "th:type="text" placeholder="hardness"></input>
+<br></br>
+<p class="inputTitle">Material execution</p>
+<input class="input" th:field="*{materialExecution} "th:type="text" placeholder="material execution"></input>
+<br></br>
+<button class="button" th:type="submit" ><span>Add</span></button>
+<br></br>
+<button class="button" th:type="reset" ><span>Reset</span></button>
+<br></br>
+<button class="button" type="submit"><a th:href="@{/toolRoom}" style="text-decoration:none; color:black;">Tool Room</a></button>
+<br/>
+
+ </div>
+</form>
+
+<ul>
+<li th:each="screwTap: ${screwTapList}" th:text="|${screwTap.identificator} - ${screwTap.brand} - ${screwTap.totalLength} - ${screwTap.workongLength} - ${screwTap.thread} - ${screwTap.threadType} - ${screwTap.hardness} - ${screwTap.materialExecution}|">ScrewTap</li>
+</ul>
+
+</body>
+</html>

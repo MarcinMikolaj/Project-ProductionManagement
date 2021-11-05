@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Order Menu</title>
+</head>
+<body>
+
+<h1>Material Order Menu</h1>
+<br />
+
+<a th:href="@{/}">Home</a>
+<br />
+<br />
+<a th:href="@{/order/new}">Create an order for materials</a>
+<br />
+<br />
+<a th:href="@{/order/check}">Check the order list </a>
+<br />
+<br />
+<a th:href="@{/provider/manage}">Manage Service Providers</a>
+<br />
+<br />
+<a th:href="@{/order/menu/providerproducts}">Manage service provider's products</a>
+<br />
+<br />
+<a th:href="@{/order/test}">Create test data</a>
+
+</body>
+</html>

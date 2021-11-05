@@ -1,0 +1,89 @@
+
+.container {	
+	position: absolute;
+	width: 380px;
+	left: 25%;
+}
+
+.button {
+	width: 100%;
+	text-align:center;
+	padding: 18px;
+	background-color: #C0C0C0;
+	border-radius: 8px;
+    cursor: pointer;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.input {
+	text-align:left;
+	font-size:12px;
+	padding: 8px 3px 5px 8px;
+	width: 100%;
+	border: 1px solid #C0C0C0;
+	border-radius: 3px;
+}
+
+.input:hover {
+	border: 2px solid #FA8072;
+}
+
+.area {
+	padding: 8px 6px 5px 8px;
+	width: 100%;
+	border: 1px solid #C0C0C0;
+	border-radius: 3px;
+}
+
+.area:hover {
+	border: 2px solid #FA8072;
+}
+
+.inputContainer {
+	border-radius: 4px;
+	display: inline-block;
+	
+}
+
+.file {
+	background-color: #D2B48C;
+	border: 1px solid #D2B48C;
+	border-radius: 3px;
+	opacity:0.8;
+	
+}
+
+.file:hover {
+  background-color: #FA8072;
+  border: 2px solid #FA8072;
+	
+}
+
+::placeholder {
+	opacity: 0.4;
+}

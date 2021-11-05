@@ -1,0 +1,74 @@
+
+body {
+	background-image: url("img/addEmployeeToProject_body.jpg");
+	
+}
+
+.container {
+	position:absolute; right: 0; left: 0; margin: auto;
+	margin-top: 60px;
+	width: 550px;
+	border: 1px solid #1f2122;
+	border-radius: 10px;
+	background-color: #1f2122;
+	color: white;
+	
+}
+
+.inputTitleText {
+	margin-left:30px;
+	color:white;
+	font-size: 15px;
+	font-family: 'Palatino Linotype';
+}
+
+.check {
+	margin-left:30px;
+	color:white;
+	font-size: 15px;
+	font-family: 'Palatino Linotype';
+}
+
+.title {
+	color:white;
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Palatino Linotype';
+	margin-top: 0;
+	border-radius:10px 10px 0px 0px;
+	border: border: 1px solid #1f2122;
+	background-color: #313232;
+	padding: 10px;
+}
+
+.buttonAdd {
+	background-color: #1cb368;
+	border: 1px solid #1cb368;
+	padding: 19px;
+	border-radius: 6px;
+	margin-left: 8%;
+	width: 450px;
+	
+}
+
+.buttonClear {
+	background-color: #404040;
+	border: 1px solid #404040;
+	padding: 12px;
+	border-radius: 6px;
+	margin-left: 8%;
+	width: 450px;
+	
+}
+
+
+
+.input {
+	background-color: #313232;
+    border: 1px solid #313232;
+    border-radius: 3.5px;	
+	color:white;
+	margin-left:30px;
+	width: 450px;
+	padding: 15px;
+}

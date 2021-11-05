@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<a th:href="@{/}">Home</a>
+<a th:href="@{/order/menu}">Order Menu</a>
+
+<h2>Submit your order</h2>
+
+<p>Create Material Order</p>
+<form th:action="@{/order/send}" th:method="post" th:object="${materialOrder}">
+
+<input th:type="text" th:field="*{orderTitle}" placeholder="order title"></input>
+<input th:type="text" th:field="*{additionalMessage}" placeholder="additional message"></input>
+
+<button th:type="submit">Send material order</button>
+
+</form>
+
+
+
+<form th:method="post" th:action="@{/order/chooseprovider}" >
+
+<p>Choose material provider</p>
+<select th:name="select">
+<option th:each="p: ${provider}" th:object="${p}" th:text="*{companyName}" th:value="*{companyName}">All</option>
+<option th:value="b">none</option>
+</select>
+
+<button type="submit">Ok</button>
+
+</form>
+
+<br></br>
+<br></br>
+
+<p>Materials offered by the supplier</p>
+<table>
+ <tr>
+ 
+    <td>Profil</td>
+    <td>Gatunek stali</td>
+    <td>Średnica zewnętrzna</td>
+    <td>Grubość ścianki</td>
+ </tr>
+ 
+ <tr th:each="o: ${offert}"> 
+ 
+    <td th:text="${o.profile}"><input th:field="${pipe.profile}"></input></td>
+    <td th:text="${o.steelGrade}"         ></td>
+    <td th:text="${o.outerDiameter}"      ></td>
+    <td th:text="${o.thicknessOfTheWall}" ></td> 
+    <td>
+      <form th:method="post" th:action="@{/order/addproduct}" th:object="${pipe}">
+      <button th:name="id" th:value=${o.id} type="submit">Add</button>
+      </form>
+    </td> 
+    
+ </tr>
+</table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Material</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/addMaterialChoose}">
+<h2>Select the type of working material you want to add to library</h2>
+<select th:name="select_get">
+<Option>nothing was selected</Option>
+<Option>rod</Option>
+<Option>tube</Option>
+</select>
+<button type="submit">Choose</button>
+</form>
+
+
+<h1>Add Material</h1>
+
+<form th:if="${select_post == 'rod'}" th:method="post" th:action="@{/addMaterial}" th:object="${rod}">
+<input th:field="*{identificator}" th:type="text" placeholder="identificator"></input>
+<input th:field="*{length}" th:type="text" placeholder="length"></input>
+<input th:field="*{diameter}" th:type="text" placeholder="diameter"></input>
+<input th:field="*{material}" th:type="text" placeholder="material"></input>
+<input th:field="*{application}" th:type="text" placeholder="application"></input>
+<input th:field="*{chamfered}" th:type="text" placeholder="chamfered"></input>
+<input th:field="*{valueOfTheChamfer}" th:type="text" placeholder="valueOfTheChamfer"></input>
+
+<button type="submit">Create Material</button>
+<button type="reset">Create Material</button>
+<button type="submit"><a th:href="@{/}">Home</a></button>
+<button type="submit"><a th:href="@{/materialOrderMenu}">Material Order Menu</a></button>
+</form>
+
+
+<form th:if="${select_post == 'tube'}" th:method="post" th:action="@{/addMaterialTube}" th:object="${tube}">
+<input th:field="*{identificator}" th:type="text" placeholder="identificator"></input>
+<input th:field="*{length}" th:type="text" placeholder="length"></input>
+<input th:field="*{outerDiameter}" th:type="text" placeholder="outerDiameter"></input>
+<input th:field="*{innerDiameter}" th:type="text" placeholder="innerDiameter"></input>
+<input th:field="*{material}" th:type="text" placeholder="material"></input>
+<input th:field="*{application}" th:type="text" placeholder="application"></input>
+<input th:field="*{chamfered}" th:type="text" placeholder="chamfered"></input>
+<input th:field="*{valueOfTheChamfer}" th:type="text" placeholder="valueOfTheChamfer"></input>
+                   
+<button type="submit">Create Material</button>
+<button type="reset">Create Material</button>
+<button type="submit"><a th:href="@{/}">Home</a></button>
+<button type="submit"><a th:href="@{/materialOrderMenu}">Material Order Menu</a></button>
+</form>
+
+</body>
+</html>

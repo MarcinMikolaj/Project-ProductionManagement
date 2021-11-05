@@ -1,0 +1,80 @@
+
+body {
+	background-image: url("img/toolRoom_background.jpg");
+}
+
+.container {
+	background-image: url("img/toolRoom_container.jpg");
+	background-color:#FFFACD;
+	color: black;
+	text-align:center;
+	width:700px;
+	margin-top:8px;
+	margin-bottom:8px;
+	height:700px;
+	position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto;
+	border-radius:12px;
+	opacity:0.9;
+}
+
+.containerDrill {
+	background-image: url("img/toolRoom_container.jpg");
+	color: white;
+	text-align:center;
+	width:800px;	
+	height:1270px;
+	position: absolute; right: 0; left: 0; margin: auto;
+	border-radius:12px;
+	opacity:0.9;
+	background-size: 120% 100%;
+}
+
+.containerScrewTap {
+	background-image: url("img/toolRoom_container.jpg");
+	color: black;
+	text-align:center;
+	width:800px;
+	height:1440px;
+	position: absolute; right: 0; left: 0; margin: auto;
+	border-radius:12px;
+	opacity:0.9;
+	background-size: 120% 100%;
+}
+
+.containerLatheKnifeCutter {
+	background-image: url("img/toolRoom_container.jpg");
+	color: black;
+	text-align:center;
+	width:700px;
+	height:1000px;
+	position: absolute;  right: 0; left: 0; margin: auto;
+	border-radius:12px;
+	opacity:0.9;
+}
+
+.inputTitle {
+	font-family: 'Palatino Linotype';
+	font-size:16px;
+	color:white;
+}
+
+.containerTitle{
+	font-family: 'Palatino Linotype';
+	font-size:22px;
+	color:white;
+}
+
+.button {
+	border-radius:12px;
+	font-size: 18px;
+	width: 600px;
+	padding:22px;;
+	background-color:#fa571e;
+	border: 1px solid #fa571e;
+	font-family: 'Palatino Linotype';
+}
+
+.input {
+	width:450px;
+	padding:15px;
+}

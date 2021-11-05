@@ -1,0 +1,51 @@
+
+body {
+	background-image: url("img/SignIn_body.jpg");
+}
+
+.container  {
+	position: absolute; left: 0; right: 0; margin: auto;
+	margin-top: 100px;
+	height:220px;
+	width:320px;
+	color: white;
+	border-radius: 8px;
+	opacity: 1;
+    
+}
+
+.title {	
+	color: white;
+	text-align: center;
+	font-size: 55px;
+}
+
+.text {
+	font-size: 20px;
+	color: white;
+	
+}
+
+.input {
+	width: 277px;
+	padding: 19px;
+	border: none;
+	border-radius: 4px;
+	
+}
+
+.button {
+	background-color: #c3324a;
+	border: 1px solid #c3324a;
+	border-radius: 4px;
+	color: white;
+	padding: 18px;
+	width: 310px;
+	
+}
+
+::placeholder {
+	color: black;
+	opacity:0.4;
+	
+}

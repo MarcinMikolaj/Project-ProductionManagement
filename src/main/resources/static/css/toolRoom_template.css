@@ -1,0 +1,73 @@
+
+body {
+	background-color: #1f2122;
+	background-image: url("img/toolRoom_background.jpg");
+}
+
+.container {
+	background-image: url("img/toolRoom_container.jpg");
+	background-color:#FFFACD;
+	color: black;
+	text-align:center;
+	width:600px;
+	height:750px;
+	margin-top: 5%;
+	margin-left:35%;
+	border-radius:21px;
+	opacity: 0.8;
+	
+}
+
+.hiper {
+	text-decoration:none;
+	color:white;
+	font-size:22px;
+}
+
+.button {
+	background-image: url("img/toolRoom_button.jpg");
+	width: 400px;
+	padding:14px 10px;
+	border-radius:13px;
+	border: 1px solid black;
+	font-family: 'Palatino Linotype';
+	background-color: #696969;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.input {
+	width:300px;
+	padding:10px;
+}
+
+
+.title {
+	color:white;
+	padding-top:15px;
+	font-size: 35px;
+	font-family: 'Palatino Linotype';
+}

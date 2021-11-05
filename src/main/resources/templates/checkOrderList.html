@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+   <tr th:each="o: ${orders}">
+      <td th:text="${o.orderTitle}"></td>
+      <td th:text="${o.creationDate}"></td>
+      <td th:text="${o.creationTime}"></td>   
+   </tr>
+
+</table>
+
+</body>
+</html>

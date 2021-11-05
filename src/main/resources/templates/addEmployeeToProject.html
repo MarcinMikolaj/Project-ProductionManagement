@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>AddEmployeeToProject</title>
+<link th:href="@{css/addEmployeeToProject_template.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+<form th:method="post" th:action="@{/addEmployeeToProject}">
+
+<p class="title">Add Employee to project</p>
+
+<p class="inputTitleText">Enter the project ID</p>
+<input class="input" th:name="projectIdentificator" th:type="text" placeholder="project identificator"></input>
+<br></br>
+<p class="inputTitleText">Provide the last name of the employee to whom the project is to be assigned </p>
+<input th:name="employeeName" class="input"  th:type="text" placeholder="employee name"></input>
+<p class="inputTitleText">Provide the name of the employee to whom the project is to be assigned </p>
+<input th:name="employeeLastName" class="input"  th:type="text" placeholder="employee last name"></input>
+
+<p style="text-align:center; color: white;">*********************************************</p>
+
+<button class="buttonClear" th:type="reset">Clear</button>
+<br></br>
+<button class="buttonClear"><a style="text-decoration:none; color:black;" th:href="@{/projectManagement}">Project Management</a></button>
+<br></br>
+<button class="buttonAdd" th:type="submit">Add Employee</button>
+<br></br>
+
+</form>
+</div>
+
+</body>
+</html>

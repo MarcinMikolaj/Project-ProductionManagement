@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/general_szablon.css}" rel="stylesheet" />
+<title>Insert title here</title>
+</head>
+
+<body>
+
+<form th:method="post" th:action="@{/returnTool/addLatheKnifeCutter}" th:object="${latheKnifeCutter}">
+<div class="containerLatheKnifeCutter">
+
+<h1 class="containerTitle">Add Lathes Knife Cutter</h1>
+
+<br/>
+<p class="inputTitle">Identificator</p>
+<input class="input" th:field="*{identificator} "th:type="text" placeholder="identificator"></input>
+<br/>
+<p class="inputTitle">Brand</p>
+<input class="input" th:field="*{brand} "th:type="text" placeholder="brand"></input>
+<br/>
+<p class="inputTitle">Knife name</p>
+<input class="input" th:field="*{name} "th:type="text" placeholder="name"></input>
+<br/>
+<p class="inputTitle">Kind of knife</p>
+<input class="input" th:field="*{kindOfKnife} "th:type="text" placeholder="kind of knife"></input>
+<br/>
+<p class="inputTitle">Total length</p>
+<input class="input" th:field="*{totalLength} "th:type="text" placeholder="total length"></input>
+<br/>
+<p class="inputTitle">handle height</p>
+<input class="input" th:field="*{handleHeight} "th:type="text" placeholder="handle height"></input>
+<br></br>
+
+<button class="button" th:type="submit" ><span>Dodaj</span></button>
+<br></br>
+<button class="button" th:type="reset" ><span>Wyczyść</span></button>
+<br></br>
+<button class="button" type="submit"><a th:href="@{/toolRoom}" style="text-decoration:none; color:black;">Wróć</a></button>
+<br/>
+
+</div>
+</form>
+
+<br></br>
+
+<ul>
+<li th:each="knife: ${latheKnifeCutterList}" th:text="|${knife.identificator} - ${knife.brand} - ${knife.name} - ${knife.kindOfKnife} -${knife.totalLength} - ${knife.handleHeight} |">LatheKnifeCutter</li>
+</ul>
+
+</body>
+</html>

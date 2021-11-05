@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Add personal Information</title>
+<link th:href="@{css/personal_template.css}"  rel="stylesheet" />
+</head>
+
+
+<body>
+<form th:method="post" th:action="@{/addPersonalInformation}" th:object=${personal}>
+
+<div class="container">
+<h1 class="title" >Add Personal Information</h1>
+
+
+<p class="inputTopText">Name</p>
+<input class="input" th:type="text" th:field="*{name}" placeholder="name">
+<br></br>
+
+<p class="inputTopText">Last Name</p>
+<input class="input" th:type="text" th:field="*{lastName}" placeholder="Last Name">
+<br></br>
+
+<p class="inputTopText">Phone Number</p>
+<input class="input" th:type="text" th:field="*{phoneNumber}" placeholder="Phone Number">
+<br></br>
+
+<p class="inputTopText">Email</p>
+<input class="input" th:type="text" th:field="*{email}" placeholder="Email">
+<br></br>
+
+<p class="inputTopText">Pesel</p>
+<input class="input" th:type="text" th:field="*{pesel}" placeholder="Pesel">
+<br></br>
+
+<p class="inputTopText">City of residence</p>
+<input class="input" th:type="text" th:field="*{cityOfResidence}" placeholder="City of residence">
+<br></br>
+
+<p class="inputTopText" >Street and number</p>
+<input class="input" th:type="text" th:field="*{streetOfResidenceAndNumber}" placeholder="street and number">
+<br></br>
+
+
+
+<div>
+<label class="inputTopText" for="labelstructure">Choose employment structure</label>
+<select class="select" th:name="employmentStructure" id="labelstructure">
+<Option>Employee</Option>
+<Option>Manager</Option>
+<Option>Director</Option>
+</select>
+</div>
+
+<p style="color:white; text-align:center;">******************************************************</p>
+
+<button class="buttonClear" th:type="reset"><a class="noHiper" th:href="@{/}">Home</a></button>
+<button class="buttonHome" th:type="reset">Reset</button>
+<br></br>
+<button class="buttonRegister" th:type="submit">Save</button>
+
+<br></br>
+</div>
+</form>
+
+</body>
+</html>

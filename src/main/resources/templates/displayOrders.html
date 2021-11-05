@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<button><a th:href="@{/}">Home</a></button>
+<button><a th:href="@{/materialOrderMenu}">Material order menu</a></button>
+
+<form th:method="post" th:action="@{/displayOrders}">
+
+<input th:name="choice" th:type="text" placeholder="place of delivery"></input>
+
+<select th:name="select" id="labelTool">
+<Option>No choice</Option>
+<Option>All</Option>
+<Option>Realized</Option>
+<Option>Not realized</Option>
+</select>
+<button type="submit">Show orders</button>
+</form>
+
+<br></br>
+<ul th:if="${select == 'All'}">
+<li th:each="l: ${list}" th:text="|${l.identificator} - ${l.quantity} - ${l.material} - ${l.length} - ${l.diameter} - ${l.placeOfDeliver} - ${l.wasRealized}|">l</li>
+</ul>
+
+<br></br>
+
+<ul th:if="${select == 'Realized'}">
+<li th:each="l: ${realized}" th:text="|${l.identificator} - ${l.quantity} - ${l.material} - ${l.length} - ${l.diameter} - ${l.placeOfDeliver} - ${l.wasRealized}|">l</li>
+</ul>
+
+
+
+<ul th:if="${select == 'Not realized'}">
+<li th:each="l: ${notRealized}" th:text="|${l.identificator} - ${l.quantity} - ${l.material} - ${l.length} - ${l.diameter} - ${l.placeOfDeliver} - ${l.wasRealized}|">l</li>
+</ul>
+
+
+<ul th:if="${choice}">
+<li th:each="l: ${placeOfDelivery}" th:text="|${l.identificator} - ${l.quantity} - ${l.material} - ${l.length} - ${l.diameter} - ${l.placeOfDeliver} - ${l.wasRealized}|">l</li>
+</ul>
+
+</body>
+</html>

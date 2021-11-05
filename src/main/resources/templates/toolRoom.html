@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tool Room</title>
+<link th:href="@{css/toolRoom_template.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container">
+<h1 class="title">Tool Room</h1>
+
+<button class="button"><a class="hiper" th:href="@{/rent}"><span>Pożycz narzędzie</span></a></button>
+<br></br>
+<button class="button"><a class="hiper" th:href="@{/returnTool}"><span>Oddaj narzędzie</span></a></button>
+<br></br>
+<button class="button"><a class="hiper" th:href="@{/returnTool/addDrill}"><span>Dodaj/Aktualizuj wiertło</span></a></button>
+<br></br>
+<button class="button"><a class="hiper" th:href="@{/returnTool/addScrewTap}"><span>Dodaj/Aktualizuj Gwintownik</span></a></button>
+<br></br>
+<button class="button"><a class="hiper" th:href="@{/returnTool/addLatheKnifeCutter}"><span>Dodaj/Aktualizuj Nóż tokarski przecinak</span></a></button>
+<br></br>
+<button class="button"><a class="hiper" th:href="@{/returnTool/removeTool}"><span>Usuń narzędzie</span></a></button>
+<br></br>
+<button class="button"><a class="hiper" th:href="@{/}"><span>Home</span></a></button>
+
+<br></br>
+
+
+</div>
+</body>
+</html>

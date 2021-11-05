@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+<link th:href="@{css/home_template.css}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<br></br>
+
+<ul>
+<li><a class="active" th:href="@{/}"><i class="fa fa-fw fa-home"></i>HOME</a></li>
+<li><a th:href="@{/}"><i class="fa fa-graduation-cap" aria-hidden="true"></i>ABOUT APPLICATION</a></li>
+<li><a th:href="@{/toolRoom}"><i class="fa fa-gavel" aria-hidden="true"></i>TOOL ROOM</a></li>
+<li><a th:href="@{/order/menu}"><i class="fa fa-cube" aria-hidden="true"></i>ORDER</a></li>
+<li><a th:href="@{/projectManagement}"><i class="fa fa-file-powerpoint-o"></i>PROJECT MANAGER</a></li>
+<li><a th:href="@{/contact}"><i class="fa fa-envelope-o" aria-hidden="true"></i>CONTACT</a></li>
+<li><a th:href="@{/register}"><i class="fa fa-group"></i>ADD NEW USER</a></li>
+<li><a th:href="@{/register}"><i class="fa fa-fw fa-user"></i>LOG OUT</a></li>
+</ul>
+
+
+</body>
+</html>

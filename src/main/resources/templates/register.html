@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{css/register_template.css}"  rel="stylesheet" />
+<title>Register</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: #252729;" >
+
+
+<div class="container">
+
+<form th:method="post" th:action="@{/register}" th:object="${account}">
+<h2 class="title">Register</h2>
+
+
+<p class="inputTopText">Login</p>
+<input th:field="*{username}" class="input" placeholder="Login"></input>
+<p class="inputTopText">Email</p>
+<input th:field="*{email}"  class="input" placeholder="Email"></input>
+<p class="inputTopText">Password</p>
+<input th:field="*{password}" class="input"placeholder="Password"></input>
+<p class="inputTopText">Confirm password</p>
+<input th:field="*{confirmPassword}" class="input" placeholder="Confirm password"></input>
+
+<br></br>
+<div>
+<label style="color:white; font-size:15px; font-family: 'Palatino Linotype';" for="terms">Accept terms and conditions</label>
+<input th:field="*{termsAndConditions}" value="true" type="checkbox" id="terms"></input>
+</div>
+
+<div>
+<label style="color:white; font-size:15px; font-family: 'Palatino Linotype';" for="privacy">Accept privacy policy</label>
+<input th:field="*{privacyPolicy}" value="true" type="checkbox" id="privacy"></input>
+</div>
+
+<br></br>
+<button type="submit" class="buttonClear">Clear</button>
+<button type="submit" class="buttonHome"><a class="noHiper" th:href="@{/}">Home</a></button>
+<p style="text-align: center; color: #bac7c5;">**************************************</p>
+<a class="noHiper" th:href="@{/}" ><p style="font-size:13px; text-align:center; color:white;" >Already have an account ?</p></a>
+<button type="submit" class="buttonRegister">Register</button>
+<br></br>
+
+</form>
+</body>
+</html>

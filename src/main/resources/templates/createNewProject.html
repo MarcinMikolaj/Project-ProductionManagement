@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create New Project</title>
+<link th:href="@{css/addProject_template.css}"  rel="stylesheet" />
+</head>
+<body>
+
+
+<div class="container">
+<form th:method="post" th:action="@{/createNewProject}" th:object="${project}">
+
+<h1 class="title">Create New Project</h1>
+
+<p class="inputTitleText">Project identificator</p>
+<input class="input" th:field="*{identificator}" th:type="text" placeholder="identificator"></input>
+<p class="inputTitleText">Start date</p>
+<input class="input" th:field="*{startDate}" type="date" placeholder="start date"></input>
+<p class="inputTitleText">End date</p>
+<input class="input" th:field="*{endDate}" type="date" placeholder="end date"></input>
+<br></br>
+<div>
+<label class="check" for="op1">Finished</label>
+<input  th:field="*{itFinished}" value="true" type="radio" name="option1" id="op1"></input>
+</div>
+
+<div>
+<label class="check" for="op2">Not Finished</label>
+<input  th:field="*{itFinished}" value="false" type="radio" name="option1" id="op2"></input>
+</div>
+
+
+<p class="inputTitleText">The name of the supervising manager</p>
+<input class="input" th:name="managerName" th:type="text" placeholder="imie kierowanika"></input>
+<p class="inputTitleText">The last name of the supervising manager</p>
+<input class="input" th:name="managerLastName" th:type="text" placeholder="nazwisko kierownika"></input>
+
+
+<p style="color: white; text-align:center;">**********************************************</p>
+
+
+<button class="buttonReset" th:type="reset">Clear</button>
+<button class="buttonReset"><a style="text-decoration:none; color:black;" th:href="@{/projectManagement}">Project Management</a></button>
+<br></br>
+<button class="buttonCreate" th:type="submit">Create</button>
+<br></br>
+</form>
+</div>
+
+</body>
+</html>

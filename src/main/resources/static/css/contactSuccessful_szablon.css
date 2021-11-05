@@ -1,0 +1,32 @@
+
+.container {
+	
+	position: absolute;
+	top:20%;
+	left:30%;
+	right:30%;
+	background-color: #FF7F50;
+    border-radius: 12px;
+}
+
+.button {
+	position:absolute;
+	left: 38%;
+	right: 30%;
+	padding: 20px 55px;
+	background-color: #FF4500;
+	border-radius: 15px;
+}
+
+.a {
+	text-decoration:none;
+	text-align:center;
+	color: white;
+}
+
+.image {
+	position:absolute;
+	left: 45%;
+	right: 30%;
+	top: 5%;
+}

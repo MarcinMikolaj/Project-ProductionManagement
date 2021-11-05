@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/markAsCompleted_p}">
+<input th:name="identificator" th:type="text" placeholder="identificator"></input>
+<button th:type="submit">Mark</button>
+<button><a th:href="@{/}">Home</a></button>
+<button><a th:href="@{/materialOrderMenu}">Material order menu</a></button>
+</form>
+
+
+
+</body>
+</html>

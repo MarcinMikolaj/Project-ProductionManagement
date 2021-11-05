@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/general_szablon.css}" rel="stylesheet" />
+</head>
+<body style="background-color: #FFFACD;">
+
+<form th:method="post" th:action="@{/rent}">
+
+<div class="container">
+
+<h1 class="containerTitle">Rent tool</h1>
+
+<p class="inputTitle">Employee identificator</p>
+<input class="input" th:name="employeeIdent" th:type="text" placeholder="employee identificator" ></input>
+<br></br>
+
+
+<p class="inputTitle">Tool identificator</p>
+<input class="input" th:name="toolIdent" th:type="text" placeholder="tool identificator"></input>
+<br></br>
+
+<p class="inputTitle">Select the type of tool</p>
+<select class="input" name="selectTool" id="labelTool">
+<Option>Drill</Option>
+<Option>Lathes Knife Cutter</Option>
+<Option>Screw Tap</Option>
+</select>
+
+
+<br></br>
+
+
+<button class="button" th:type="submit"><span>Wypożycz</span></button>
+<br></br>
+<button class="button" th:type="reset" ><span>Wyczyść</span></button>
+<br></br>
+<button class="button" type="submit"><span><a th:href="@{/toolRoom}" style="text-decoration:none; color:black;">Wróć</a></span></button>
+
+
+</div>
+
+</form>
+
+
+
+</body>
+</html>

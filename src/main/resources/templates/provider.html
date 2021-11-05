@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<a th:href="@{/}">Home</a>
+<a th:href="@{/order/menu}">Order Menu</a>
+
+<form action="#" th:method="post" th:action="@{/menu/order/provider/create}" th:object="${materialProvider}">
+<h2>Enter data to add a new supplier </h2>
+
+
+<p>Enter the name of material provider</p>
+<input th:type="text" th:field="*{companyName}" placeholder="Company"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}">errors</p>
+
+<br></br>
+
+<p>Enter the supplier's address </p>
+<input th:type="text" th:field="*{adress}" placeholder="adress"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}">errors</p>
+
+<br></br>
+
+<p>Enter the supplier's e-mail address </p>
+<input th:type="text" th:field="*{email}" placeholder="email"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="${materialProvider.email}">errors</p>
+
+<br></br>
+
+<p>Enter the supplier's phone number</p>
+<input th:type="text" th:field="*{number}" placeholder="telephone"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">error</p>
+
+<br></br>
+
+<p>Enter the supplier's tax identification number</p>
+<input th:type="text" th:field="*{nip}" placeholder="NIP"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('nip')}" th:errors="*{nip}">error</p>
+
+<br></br>
+
+<p>Enter the supplier's REGON number</p>
+<input th:type="text" th:field="*{regon}" placeholder="REGON"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('nip')}" th:errors="*{regon}">error</p>
+
+
+<br></br>
+<button type="submit">Add new material provider</button>
+<button type="reset">Clear</button>
+
+</form>
+
+<br></br>
+<br></br>
+
+
+<form th:method="post" th:action="@{/menu/order/provider/delete}">
+<p>Enter the tax identification number to delete the supplier </p>
+<input th:type="text" th:name="nip" placeholder="nip"></input>
+<button type="submit">Delete</button>
+</form>
+
+
+<p>Providers</p>
+<table>
+  <tr>
+    <td>Company Name</td>
+     <td>Adress</td>
+      <td>Email</td>
+       <td>Telephone</td>
+        <td>NIP</td>
+         <td>REGON</td>
+  </tr>
+  <tr th:each="p: ${providers}">
+    <td th:text=${p.companyName}></td>
+     <td th:text=${p.adress}></td>
+      <td th:text=${p.email}></td>
+       <td th:text=${p.number}></td>
+        <td th:text=${p.nip}></td> 
+        <td th:text=${p.regon}></td>
+  </tr>
+</table>
+
+
+</body>
+</html>

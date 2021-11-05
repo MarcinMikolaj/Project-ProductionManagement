@@ -1,0 +1,52 @@
+
+body {
+   background-image: url("img/home_background.jpg");
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;	
+	background-color: #333;
+	
+	/*Sticky Navbar*/
+	position: sticky;
+	top: 0;
+}
+
+
+li {
+float: left;
+opacity: 0.8;
+border-right: 1px solid white;
+}
+
+li a{
+	font-size: 14px;
+color: white;
+display: inline;
+display: block;
+padding: 50px 60px;
+}
+
+li a:hover:not(.active){
+	background-color: #111;
+}
+
+.active {
+	background-color: #db2c2c;
+}
+
+
+/* Navigation Bar */
+
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  
+  color:black;
+  background-color: #f1f1f1;
+}

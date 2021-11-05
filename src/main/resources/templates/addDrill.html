@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Drill</title>
+<link th:href="@{/css/general_szablon.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class ="containerDrill">
+<form th:method="post" th:action="@{/returnTool/addDrill}" th:object="${drill}">
+
+
+
+<h1 class="containerTitle">Add Drill</h1>
+
+<p class="inputTitle"> Identificator</p>
+<input class="input" th:field="*{identificator} "th:type="text" placeholder="identificator"></input>
+<br/>
+<p class="inputTitle">Total length</p>
+<input class="input" th:field="*{totalLength} "th:type="text" placeholder="total length"></input>
+<br/>
+<p class="inputTitle">Working length</p>
+<input class="input" th:field="*{workingLength} "th:type="text" placeholder="working length"></input>
+<br/>
+<p class="inputTitle">Diameter</p>
+<input class="input" th:field="*{diameter} "th:type="text" placeholder="diameter"></input>
+<br/>
+<p class="inputTitle">Apex angle</p>
+<input class="input" th:field="*{apexAngle} "th:type="text" placeholder="apex angle"></input>
+<br/>
+<p class="inputTitle">Destiny</p>
+<input class="input" th:field="*{destiny} "th:type="text" placeholder="destiny"></input>
+<br/>
+<p class="inputTitle">Material execution</p>
+<input class="input" th:field="*{materialExecution} "th:type="text" placeholder="material execution"></input>
+<br/>
+<p class="inputTitle">Handle type</p>
+<input class="input" th:field="*{handleType} "th:type="text" placeholder="handle type"></input>
+<br/>
+
+<p class="inputTitle">Quick Clamping System</p>
+<div>
+<label for="op1">yes</label>
+<input class="input" th:field="*{quickClampingSystem}" value="true" th:type="radio" name="option1" id="op1"></input>
+</div>
+
+<div>
+<label for="op2">not</label>
+<input class="input" th:field="*{quickClampingSystem}" value="false" th:type="radio" name="option1" id="op2"></input>
+</div>
+
+
+<button class="button"  th:type="submit" ><span>Dodaj</span></button>
+<br></br>
+<button class="button" th:type="reset" ><span>Wyczyść</span></button>
+<br></br>
+<button class="button" type="submit"><a th:href="@{/toolRoom}" style="text-decoration:none; color:black;">Wróć</a></button>
+<br/>
+
+</form>
+</div>
+
+<p>Dostępne wiertła</p>
+
+<ul>
+<li th:each="drill: ${drillList}"  th:text="|${drill.identificator} - ${drill.totalLength} - ${drill.workingLength} - ${drill.diameter} - ${drill.apexAngle} - ${drill.destiny} - ${drill.materialExecution} - ${drill.handleType}|">Drill</li>
+</ul>
+
+</body>
+</html>

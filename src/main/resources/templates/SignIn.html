@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{../css/SignIn_template.css}"  rel="stylesheet" />
+<title>Sign In</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body >
+
+<form method="post" th:action="@{/signIn}">
+<div class="container">
+<h1 class="title">Sign In</h1>
+<p class="text">Username</p>
+<input name="username" class="input" placeholder="username" type="text"></input>
+<br></br>
+<p class="text">Password</p>
+<input name="password" class="input" placeholder="password" type="password"></input>
+<br></br>
+<button  class="button" type="submit">Login</button>
+</div>
+</form>
+
+</body>
+</html>
