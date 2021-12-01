@@ -20,7 +20,7 @@ public class UniqueConstraint implements ConstraintValidator<Unique, String> {
 		
 
 		
-		obj.createUpdateOrDeleteQuery(myQuery);
+		//obj.createUpdateOrDeleteQuery(myQuery);
 	}
 	
 	public boolean isValid(String value, ConstraintValidatorContext context) {

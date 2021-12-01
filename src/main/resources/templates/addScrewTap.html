@@ -49,9 +49,32 @@
  </div>
 </form>
 
-<ul>
-<li th:each="screwTap: ${screwTapList}" th:text="|${screwTap.identificator} - ${screwTap.brand} - ${screwTap.totalLength} - ${screwTap.workongLength} - ${screwTap.thread} - ${screwTap.threadType} - ${screwTap.hardness} - ${screwTap.materialExecution}|">ScrewTap</li>
-</ul>
+<p style="color: white; font-size: 24px;">Dostępne gwintowniki</p>
+
+<table>
+<tr>
+  <td>Identyfikator</td>
+  <td>Marka</td>
+  <td>Dł. całkowita</td>
+  <td>Dł. robocza</td>
+  <td>Gwint</td>
+  <td>Typ</td>
+  <td>Twardość</td>
+  <td>Wykonanie</td>
+</tr>
+
+<tr th:each="screwTap: ${screwTapList}">
+  <td th:text="${screwTap.identificator}"></td>
+  <td th:text="${screwTap.brand}"></td>
+  <td th:text="${screwTap.totalLength}"></td>
+  <td th:text="${screwTap.workongLength}"></td>
+  <td th:text="${screwTap.thread}"></td>
+  <td th:text="${screwTap.threadType}"></td>
+  <td th:text="${screwTap.hardness}"></td>
+  <td th:text="${screwTap.materialExecution}"></td>
+</tr>
+</table>
+
 
 </body>
 </html>

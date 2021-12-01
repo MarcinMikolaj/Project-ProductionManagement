@@ -45,9 +45,28 @@
 
 <br></br>
 
-<ul>
-<li th:each="knife: ${latheKnifeCutterList}" th:text="|${knife.identificator} - ${knife.brand} - ${knife.name} - ${knife.kindOfKnife} -${knife.totalLength} - ${knife.handleHeight} |">LatheKnifeCutter</li>
-</ul>
+<p style="color: white; font-size: 24px;">Dostępne noże tokarskie</p>
+
+<table>
+<tr>
+  <td>Identyfikator</td>
+  <td>Marka</td>
+  <td>Nazwa norza</td>
+  <td>Rodzaj</td>
+  <td>Długość całkowita</td>
+  <td>Wysokość uchwytu</td>
+</tr>
+
+<tr th:each="knife: ${latheKnifeCutterList}">
+  <td th:text="${knife.identificator}"></td>
+  <td th:text="${knife.brand}"></td>
+  <td th:text="${knife.name}"></td>
+  <td th:text="${knife.kindOfKnife}"></td>
+  <td th:text="${knife.totalLength}"></td>
+  <td th:text=${knife.handleHeight}></td>
+</tr>
+</table>
+
 
 </body>
 </html>

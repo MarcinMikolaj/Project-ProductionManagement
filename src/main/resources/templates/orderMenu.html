@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Order Menu</title>
+	<meta charset="UTF-8">
+	<title>menu</title>
+	<link rel="stylesheet" th:href="@{../css/orderMenu_style.css}" type="text/css" />
 </head>
-<body>
 
-<h1>Material Order Menu</h1>
-<br />
+<h1>Zarządzaj materiałami i zamawiaj</h1>
 
-<a th:href="@{/}">Home</a>
 <br />
 <br />
-<a th:href="@{/order/new}">Create an order for materials</a>
+<br />
+     
+<a class="btn" th:href="@{/}">Home</a>
+<a class="btn" th:href="@{/order/new}">Stwórz i wyślij zamówienie</a>
+<a class="btn" th:href="@{/order/check}">Sprawdz listę zamówień</a>
+<a class="btn" th:href="@{/order/warehouse}">Magazyn materiałów</a>
 <br />
 <br />
-<a th:href="@{/order/check}">Check the order list </a>
 <br />
 <br />
-<a th:href="@{/provider/manage}">Manage Service Providers</a>
 <br />
 <br />
-<a th:href="@{/order/menu/providerproducts}">Manage service provider's products</a>
-<br />
-<br />
-<a th:href="@{/order/test}">Create test data</a>
+<a class="btn" th:href="@{/provider/manage}">Zarządzaj dostawcami materiałów</a>
+<a class="btn" th:href="@{/order/menu/providerproducts}">Zarządzaj produktami dostawców</a>
 
-</body>
-</html>

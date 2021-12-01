@@ -13,10 +13,28 @@ import javax.persistence.FetchType;
 
 import project.entities.Employee;
 
+import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+//Lombok
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@Getter(AccessLevel.PUBLIC)
+@Setter(AccessLevel.PUBLIC)
+@ToString
+//Hibernate
 @Entity
 @Table(name = "screwtap")
 public class ScrewTap implements Serializable {
 	
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private static final long serialVersionUID = 5766101572064508187L;
 
 	@Id
@@ -35,9 +53,8 @@ public class ScrewTap implements Serializable {
 	private String materialExecution;
 	
 	@OneToOne(fetch = FetchType.LAZY)
+	@ToString.Exclude
 	private Employee employee;
-	
-	public ScrewTap() {}
 
 	public ScrewTap(String identificator, String brand, String totalLength, String workongLength, String thread,
 			String threadType, String threadProfile, String hardness, String materialExecution) {
@@ -54,110 +71,4 @@ public class ScrewTap implements Serializable {
 		this.itIsOnLoad = false;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getIdentificator() {
-		return identificator;
-	}
-
-	public void setIdentificator(String identificator) {
-		this.identificator = identificator;
-	}
-
-	public boolean isItIsOnLoad() {
-		return itIsOnLoad;
-	}
-
-	public void setItIsOnLoad(boolean itIsOnLoad) {
-		this.itIsOnLoad = itIsOnLoad;
-	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public String getTotalLength() {
-		return totalLength;
-	}
-
-	public void setTotalLength(String totalLength) {
-		this.totalLength = totalLength;
-	}
-
-	public String getWorkongLength() {
-		return workongLength;
-	}
-
-	public void setWorkongLength(String workongLength) {
-		this.workongLength = workongLength;
-	}
-
-	public String getThread() {
-		return thread;
-	}
-
-	public void setThread(String thread) {
-		this.thread = thread;
-	}
-
-	public String getThreadType() {
-		return threadType;
-	}
-
-	public void setThreadType(String threadType) {
-		this.threadType = threadType;
-	}
-
-	public String getThreadProfile() {
-		return threadProfile;
-	}
-
-	public void setThreadProfile(String threadProfile) {
-		this.threadProfile = threadProfile;
-	}
-
-	public String getHardness() {
-		return hardness;
-	}
-
-	public void setHardness(String hardness) {
-		this.hardness = hardness;
-	}
-
-	public String getMaterialExecution() {
-		return materialExecution;
-	}
-
-	public void setMaterialExecution(String materialExecution) {
-		this.materialExecution = materialExecution;
-	}
-	
-	
-	
-	public Employee getEmployee() {
-		return employee;
-	}
-	
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-
-	@Override
-	public String toString() {
-		return "ScrewTap [id=" + id + ", identificator=" + identificator + ", itIsOnLoad=" + itIsOnLoad + ", brand="
-				+ brand + ", totalLength=" + totalLength + ", workongLength=" + workongLength + ", thread=" + thread
-				+ ", threadType=" + threadType + ", threadProfile=" + threadProfile + ", hardness=" + hardness
-				+ ", materialExecution=" + materialExecution + "]";
-	}
-	
 }

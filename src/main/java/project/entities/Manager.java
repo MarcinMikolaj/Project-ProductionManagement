@@ -7,17 +7,16 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.NamedQuery;
 
-import javax.persistence.OneToMany;
-import javax.persistence.ElementCollection;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
-import java.util.List;
-import java.util.ArrayList;
-
+//Lombok
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+//Hibernate
 @Entity
 @Table(name = "manager")
 public class Manager implements Serializable{
@@ -28,37 +27,10 @@ public class Manager implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String identificator;
-	
-	public Manager() {}
-	
+		
 	public Manager(String identificator) {
 		super();
 		this.identificator = identificator;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getIdentificator() {
-		return identificator;
-	}
-
-	public void setIdentificator(String identificator) {
-		this.identificator = identificator;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	@Override
-	public String toString() {
-		return "Manager [id=" + id + ", identificator=" + identificator + "]";
 	}
 	
 }

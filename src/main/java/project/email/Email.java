@@ -7,56 +7,47 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.NonNull;
+
+//Lombok
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@Getter(AccessLevel.PUBLIC)
+@Setter(AccessLevel.PUBLIC)
+@ToString(onlyExplicitlyIncluded = true)
+//Hibernate
 @Entity
 public class Email implements Serializable {
 	
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private static final long serialVersionUID = -2419437018945582293L;
 	
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@ToString.Include
 	private Long id;
+	@ToString.Include
+	@NonNull
 	private String adres;
+	@ToString.Include
+	@NonNull
 	private String title;
+	@NonNull
 	private String text;
 	
-	
-    public Email() {};
-    
     public Email(String adres, String title, String text) {
     	this.adres = adres;
     	this.title = title;
     	this.text = text;
     }
-    
-	public String getAdres() {
-		return adres;
-	}
-
-	public void setAdres(String adres) {
-		this.adres = adres;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getText() {
-		return text;
-	}
-
-	public void setText(String text) {
-		this.text = text;
-	}
-	
-	
-
-	@Override
-	public String toString() {
-		return "Email [adres=" + adres + ", title=" + title + ", text=" + text + "]";
-	}
     
 }

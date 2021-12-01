@@ -1,69 +1,187 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Zamówienie</title>
+	<link rel="stylesheet" th:href="@{../css/materialOrder_style.css}" type="text/css" />
 </head>
+
 <body>
+<div class="container_2">
 
-<a th:href="@{/}">Home</a>
-<a th:href="@{/order/menu}">Order Menu</a>
+	<a th:href="@{/}">Home</a>
+	<a th:href="@{/order/menu}">Order Menu</a>
 
-<h2>Submit your order</h2>
+	<div style="width: 100%; height: 100px; text-align: center;">
+		<h2 style="
+			background: rgba(200, 200, 200, .6);
+			border: none;
+			padding: 15px 15%;
+			display: inline-block;
+			font-size: 48px;
+			box-shadow: 5px 10px 10px #888888;
+			border-radius: 8px;
+			border: 3px solid #000000;"
+			>Zamawianie nowych materiałów</h2>
+	</div>
+	
+	<br /><br />
+	<br /><br />
+	
+	<header>
+		<div style="position: relative; left: 200px;">
+			<form th:method="post" th:action="@{/order/chooseprovider}" >
+				<h2>Wybierz dostawcę materiałów</h2>
+				<select th:name="select">
+					<option value="b" style="min-width: 200px;">none</option>
+					<option th:each="p: ${provider}" th:object="${p}" th:text="*{companyName}" th:value="*{companyName}">Wszyscy</option>
+				</select>
+				
+				<button th:type="submit">Ok</button>
+			</form>
+		</div>
+	
+	
+		<div style="position: relative; right: 100px;">
+			<h2>Wyślij zamówienie</h2>
+			<p>(Zamówienie zawiera materiały dodane do koszyka)</p>
+			<form th:action="@{/order/send}" th:method="post" th:object="${materialOrder}">
+				<input th:type="text" th:field="*{orderIdentificator}" placeholder="id zamówienia"></input>
+				<input th:type="text" th:field="*{orderTitle}" placeholder="tytuł zamówienia"></input>
+				<input th:type="text" th:field="*{additionalMessage}" placeholder="dodatkowe uwagi"></input>
 
-<p>Create Material Order</p>
-<form th:action="@{/order/send}" th:method="post" th:object="${materialOrder}">
+				<button type="submit">Send material order</button>
+			</form>
+		</div>
+	</header>
 
-<input th:type="text" th:field="*{orderTitle}" placeholder="order title"></input>
-<input th:type="text" th:field="*{additionalMessage}" placeholder="additional message"></input>
+	
+	<main>
+	
+		<h2 style="position: relative; left:20%;"><br />Rury</h2>
+		<aside style="text-align: center; border-bottom: 5px solid silver;">
+				<h2>Twój Koszyk</h2>
+		</aside>
+	</main>
+	
+	<main>
+		<table th:id="materials">
+			<tr>
+				<td>Profil</td>
+				<td>Gatunek stali</td>
+				<td>Średnica zewnętrzna</td>
+				<td>Grubość ścianki</td>
+			</tr>
+			 
+			<tr th:each="o: ${PipeOffert}"> 
+			 
+				<td th:text="${o.profile}"><input th:field="${pipe.profile}"></input></td>
+				<td th:text="${o.materialType}"></td>
+				<td th:text="${o.outerDiameter}"></td>
+				<td th:text="${o.thicknessOfTheWall}"></td> 
+				<td>
+				  <form th:method="post" th:action="@{/order/add/cart/pipe}" th:object="${pipe}">
+				  <button th:name="id" th:value=${o.id} th:type="submit">Add</button>
+				  </form>
+				</td> 
+				
+			</tr>
+		</table>
 
-<button th:type="submit">Send material order</button>
+		<!-- Wyświetlanie materiałów dodanych do koszyka -->
+		<aside>
+			<section class="widget">
+					<h3 style="text-align: center;">Rury</h3>
+				<table id="materials">
+					 <tr>
+						<td>Profil</td>
+						<td>Gatunek stali</td>
+						<td>Średnica zewnętrzna</td>
+						<td>Grubość ścianki</td>
+					 </tr>
+					 
+					<tr th:each="s: ${PipesInTheBasket}">  
+						<td th:text="${s.profile}"><input th:field="${pipe.profile}"></input></td>
+						<td th:text="${s.materialType}"         ></td>
+						<td th:text="${s.outerDiameter}"      ></td>
+						<td th:text="${s.thicknessOfTheWall}" ></td>   
+						<td>
+						  <form th:method="post" th:action="@{/order/remove/pipe}">
+						  <button th:name="PipeIdToRemove" th:value=${s.id} th:type="submit">Remove</button>
+						  </form>
+						</td> 
+					</tr>
+				</table>
+			</section>
+		</aside>
+	</main>
 
-</form>
+	<main>
+	<h2 style="position: relative; left:20%;">Pręty</h2>
+	<aside>
+	</aside>
+	</main>
+	
+	<main>
+		<table th:id="materials">
+		 <tr>
+			<td>Profil</td>
+			<td>Gatunek materiału</td>
+			<td>Średnica zewnętrzna</td>
+			<td>Długość</td>
+			<td>waga 1m/kg</td> 
+			<td>Parametry dodatkowe</td> 
+		 </tr>
+		 
+		 <tr th:each="r: ${RodsOffert}"> 
+			<td th:text="${r.profile}"></td>
+			<td th:text="${r.materialType}"></td>
+			<td th:text="${r.diameter}"></td>
+			<td th:text="${r.length}"></td>
+			<td th:text="${r.weight}"></td>
+			<td th:text="${r.additional}"></td>
+			<td>
+			  <form th:method="post" th:action="@{/order/add/cart/rod}" th:object="${rod}">
+			  <button th:name="id" th:value=${r.id} th:type="submit">Add</button>
+			  </form>
+			</td> 
+
+		 </tr>
+		</table>
 
 
-
-<form th:method="post" th:action="@{/order/chooseprovider}" >
-
-<p>Choose material provider</p>
-<select th:name="select">
-<option th:each="p: ${provider}" th:object="${p}" th:text="*{companyName}" th:value="*{companyName}">All</option>
-<option th:value="b">none</option>
-</select>
-
-<button type="submit">Ok</button>
-
-</form>
-
-<br></br>
-<br></br>
-
-<p>Materials offered by the supplier</p>
-<table>
- <tr>
- 
-    <td>Profil</td>
-    <td>Gatunek stali</td>
-    <td>Średnica zewnętrzna</td>
-    <td>Grubość ścianki</td>
- </tr>
- 
- <tr th:each="o: ${offert}"> 
- 
-    <td th:text="${o.profile}"><input th:field="${pipe.profile}"></input></td>
-    <td th:text="${o.steelGrade}"         ></td>
-    <td th:text="${o.outerDiameter}"      ></td>
-    <td th:text="${o.thicknessOfTheWall}" ></td> 
-    <td>
-      <form th:method="post" th:action="@{/order/addproduct}" th:object="${pipe}">
-      <button th:name="id" th:value=${o.id} type="submit">Add</button>
-      </form>
-    </td> 
-    
- </tr>
-</table>
-
-
-
+		<!-- Wyświetlanie materiałów dodanych do koszyka -->
+		<aside>
+			<section class="widget">
+				<h3 style="text-align: center;">Pręty</h3>
+				<table id="materials">
+					<tr>
+						<td>Profil</td>
+						<td>Gatunek materiału</td>
+						<td>Średnica zewnętrzna</td>
+						<td>Długość</td>
+						<td>waga 1m/kg</td> 
+						<td>Parametry dodatkowe</td> 
+					 </tr>
+					 
+					 <tr th:each="u: ${RodsInTheBasket}"> 
+						<td th:text="${u.profile}"></td>
+						<td th:text="${u.materialType}"></td>
+						<td th:text="${u.diameter}"></td>
+						<td th:text="${u.length}"></td>
+						<td th:text="${u.weight}"></td>
+						<td th:text="${u.additional}"></td>
+						<td>
+						  <form th:method="post" th:action="@{/order/remove/rod}">
+						  <button th:name="RodIdToRemove" th:value=${u.id} th:type="submit">Remove</button>
+						  </form>
+						</td> 
+					 </tr>
+				</table>
+			</section>
+		</aside>
+	</main>
+	
+</div>
 </body>
 </html>

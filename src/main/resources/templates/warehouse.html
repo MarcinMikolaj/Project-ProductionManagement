@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{../css/warehouse_style.css}" type="text/css" />
+</head>
+
+<body>
+<div class="container_2">
+
+<div style="width: 100%; height: 100px; text-align: center;">
+	<h1 style="
+	background: rgba(200, 200, 200, .6);
+	border: none;
+	padding: 15px 30%;
+	display: inline-block;
+	font-size: 48px;
+	box-shadow: 5px 10px 10px #888888;
+	border-radius: 8px;
+	border: 3px solid #000000;">
+Magazyn</h1>
+</div>
+
+<header>
+	<form th:action="@{/order/warehouse/add/order}" th:method="post">
+		<h3>Dodaj materiały z zamówienia <br />(w celu ich dodania wpisz identifikator zamówienia)</h3>
+		<input th:type="text" th:name="identificator" placeholder="" style="min-width: 230px"></input>
+		
+		<ul th:each="message : ${messages}">
+            <li style="color:#bf4040" th:text="${message}" class="ui error message" />
+        </ul>
+        
+		<button th:value="submit">Dodaj zamówienie</button>
+	</form>
+
+	<form th:action="@{/order/warehouse/choose/materialtype}" th:method="post">
+		<h3>Wybierz jakiego gatunku materiały chcesz wyświetlić</h3><br />
+		<select th:name="selectMaterialType">
+			<option th:each="p: ${materials}" th:object="${p}" th:text="${p}" th:value="${p}" style="min-width: 140px;">Materiały</option>
+		</select>
+
+		<select th:name="selectProfile">
+			<option th:each="i: ${profiles}" th:object="${i}" th:text="${i}" th:value="${i}" style="min-width: 140px">Profile</option>
+		</select>
+
+		<button type="submit">Wybierz</button>
+	</form>
+
+	<form th:action="@{/order/warehouse/sort}" th:method="post">
+		<br /><br />
+		<h3>Wybierz sposób sortowania materiałów</h3>
+		
+		<table>
+			<tr>
+				<td>
+					<select th:name="sortBy">
+					<option th:value="orderOfAddition ">Domyślnie</option>
+					<option th:value="quantityInStockMinus">Ilość w magazynie (od najmniejszej)</option>
+					<option th:value="quantityInStockPlus">Ilość w magazynie (od największej)</option>
+					</select>
+				</td>
+				<td>
+					<button type="submit">Sortuj</button>
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+</header>
+
+<h1 style="text-align: center;">Rury</h1>
+<main>
+	<table id="materials">
+		<tr>
+			<td>Profil</td>
+			<td>Gatunek stali</td>
+			<td>Średnica zewnętrzna</td>
+			<td>Grubość ścianki</td>
+			<td>Długość</td>
+			<td>Waga kg/m</td>
+			<td>szt. w magazynie</td> 
+			<td></td> 
+		</tr>
+		<tr th:each="o: ${pipes}"> 
+			<td th:text="${o.profile}"></td>
+			<td th:text="${o.materialType}"></td>
+			<td th:text="${o.outerDiameter}"></td>
+			<td th:text="${o.thicknessOfTheWall}"></td>
+			<td th:text="${o.length}"></td>
+			<td th:text="${o.weight}"></td>
+			<td th:text="${o.quantityInStock}"></td>
+			<td>
+				<form th:action="@{/order/warehouse/take/pipe}" th:method="post">
+				<input th:name="numberToRemovePipe" type="number"></input>
+				<button th:name="PipeId" th:value="${o.id}" type="submit">Pobierz Materiał</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+</main>
+
+<h1 style="text-align: center;">Pręty</h1>
+
+<main>
+	<table id="materials">
+		 <tr>
+			<td>Profil</td>
+			<td>Gatunek stali</td>
+			<td>Średnica zewnętrzna</td>
+			<td>Długość</td>
+			<td>Waga</td>
+			<td>Parametry dodadkowe</td>
+			<td>Szt. w magazynie</td>
+			<td></td>
+		</tr>
+		<tr th:each="r: ${rods}"> 
+			<td th:text="${r.profile}"></td>
+			<td th:text="${r.materialType}"></td>
+			<td th:text="${r.diameter}"></td>
+			<td th:text="${r.length}"></td>
+			<td th:text="${r.weight}"></td>
+			<td th:text="${r.additional}"></td>
+			<td th:text="${r.quantityInStock}"></td>
+			<td>
+				<form th:action="@{/order/warehouse/take/rod}" th:method="post">
+				<input th:name="numberToRemoveRod" type="number"></input>
+				<button th:name="RodId" th:value="${r.id}">Pobierz Materiał</button>
+				</form>
+			</td>
+		 </tr>
+	</table>
+</main>
+
+</div>
+</body>
+</html>

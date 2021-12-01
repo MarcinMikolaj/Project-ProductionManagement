@@ -164,7 +164,7 @@ public class ToolRentService {
 		ToolRent toolRent = toolRentRepository.findById(TOOL_ID);
 		Drill drill = drillRepository.findByIdentificator(identificator);	
 		
-		if(drill.getItIsOnLoad() == true || drill.getEmployee() != null) {
+		if(drill.isItIsOnLoad() == true || drill.getEmployee() != null) {
 			System.out.println("ToolRentService.removeDrill: nie można usunąć narzędzia ponieważ jest wypożyczone");
 			return false;
 		}
@@ -248,14 +248,15 @@ public class ToolRentService {
 				
 		Drill drill = drillRepository.findByIdentificator(drillIdent);
 		
-		if(drill.getItIsOnLoad() == false) {
+		if(drill.isItIsOnLoad() == false) {
 			Employee employee = employeeRepository.findByIdentificator(employeeIdent);
 			
 			drillRepository.updateItIsOnLoad(true, drill.getId());
 			drillRepository.updateEmployee(employee, drill.getId());
 			
 			drill.setItIsOnLoad(true);
-			drill.setEmpolyee(employee);
+			
+			drill.setEmployee(employee);
 			employee.getDrillOwned().add(drill);		
 			employeeRepository.update(employee);
 			
@@ -344,7 +345,7 @@ public class ToolRentService {
 		
 		Drill drill = drillRepository.findByIdentificator(drillIdent);
 		
-		if(drill.getItIsOnLoad() == true && drill.getEmployee() != null) {
+		if(drill.isItIsOnLoad() == true && drill.getEmployee() != null) {
 					
 			drillRepository.updateItIsOnLoad(false, drill.getId());
 			drillRepository.updateEmployee(null, drill.getId());

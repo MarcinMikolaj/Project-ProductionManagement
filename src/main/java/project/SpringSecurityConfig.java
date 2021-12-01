@@ -4,9 +4,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.context.annotation.Bean;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,10 +19,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import project.services.AccountUserDetailsService;
 
 @Configuration
+
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter  {
 	
 	private AccountUserDetailsService accountUserDetailsService;
-	
+			
 	public SpringSecurityConfig() {};
 	
 	@Autowired

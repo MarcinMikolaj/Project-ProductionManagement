@@ -3,6 +3,107 @@ body {
    background-image: url("img/home_background.jpg");
 }
 
+.tw {
+	
+position: absolute;
+top:620px;
+left: 160px;
+font-size: 25px;
+text-align: center;
+font-family: 'Alegreya Sans SC', sans-serif;
+color: white;
+width: 450px;
+min-height: 120px;
+background-color: #1f2122;
+opacity: 0.8;
+border-radius:12px;
+	
+}
+
+.textbox0 {
+	
+position: absolute;
+top:200px;
+left: 100px;
+	
+font-size: 20px;
+font-family: 'Alegreya Sans SC', sans-serif;
+color: white;
+width: 1600px;
+min-height: 100px;
+background-color: #1f2122;
+opacity: 0.8;
+border-radius:16px;
+	
+}
+
+/* Zamówienia */
+.textbox1 {
+	
+position: absolute;
+top:330px;
+left: 100px;
+font-size: 20px;
+font-family: 'Alegreya Sans SC', sans-serif;
+color: white;
+width: 700px;
+min-height: 260px;
+background-color: #1f2122;
+opacity: 0.8;
+border-radius:16px;
+	
+}
+
+/* Narzedziownia */
+.textbox2 {
+	
+position: absolute;
+top:320px;
+left: 1000px;
+font-family: 'Alegreya Sans SC', sans-serif;	
+font-size: 20px;
+color: white;
+width: 700px;
+min-height: 180px;
+background-color: #1f2122;
+opacity: 0.8;
+border-radius:16px;
+	
+}
+
+.textbox3 {
+	
+position: absolute;
+top:520px;
+left: 1000px;
+font-family: 'Alegreya Sans SC', sans-serif;	
+font-size: 20px;
+color: white;
+width: 700px;
+min-height: 180px;
+background-color: #1f2122;
+opacity: 0.8;
+border-radius:16px;
+	
+}
+
+/* 4. Zarządzanie projektami: */
+.textbox4 {
+	
+position: absolute;
+top:720px;
+left: 1000px;
+font-size: 20px;
+font-family: 'Alegreya Sans SC', sans-serif;
+color: white;
+width: 700px;
+min-height: 180px;
+background-color: #1f2122;
+opacity: 0.8;
+border-radius:16px;
+	
+}
+
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -23,7 +124,7 @@ border-right: 1px solid white;
 }
 
 li a{
-	font-size: 14px;
+font-size: 16px;
 color: white;
 display: inline;
 display: block;
@@ -46,7 +147,6 @@ select {
   padding: 16px 20px;
   border: none;
   border-radius: 4px;
-  
   color:black;
   background-color: #f1f1f1;
 }

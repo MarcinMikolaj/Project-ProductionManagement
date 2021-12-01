@@ -3,75 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link th:href="@{../css/provider_template.css}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
-<a th:href="@{/}">Home</a>
-<a th:href="@{/order/menu}">Order Menu</a>
-
-<form action="#" th:method="post" th:action="@{/menu/order/provider/create}" th:object="${materialProvider}">
-<h2>Enter data to add a new supplier </h2>
+<a class="button1" th:href="@{/}">Home</a>
+<a class="button1" th:href="@{/order/menu}">Order Menu</a>
 
 
-<p>Enter the name of material provider</p>
-<input th:type="text" th:field="*{companyName}" placeholder="Company"></input>
-<p style="color:red;" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}">errors</p>
-
-<br></br>
-
-<p>Enter the supplier's address </p>
-<input th:type="text" th:field="*{adress}" placeholder="adress"></input>
-<p style="color:red;" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}">errors</p>
-
-<br></br>
-
-<p>Enter the supplier's e-mail address </p>
-<input th:type="text" th:field="*{email}" placeholder="email"></input>
-<p style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="${materialProvider.email}">errors</p>
-
-<br></br>
-
-<p>Enter the supplier's phone number</p>
-<input th:type="text" th:field="*{number}" placeholder="telephone"></input>
-<p style="color:red;" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">error</p>
-
-<br></br>
-
-<p>Enter the supplier's tax identification number</p>
-<input th:type="text" th:field="*{nip}" placeholder="NIP"></input>
-<p style="color:red;" th:if="${#fields.hasErrors('nip')}" th:errors="*{nip}">error</p>
-
-<br></br>
-
-<p>Enter the supplier's REGON number</p>
-<input th:type="text" th:field="*{regon}" placeholder="REGON"></input>
-<p style="color:red;" th:if="${#fields.hasErrors('nip')}" th:errors="*{regon}">error</p>
-
-
-<br></br>
-<button type="submit">Add new material provider</button>
-<button type="reset">Clear</button>
-
-</form>
-
-<br></br>
-<br></br>
-
-
-<form th:method="post" th:action="@{/menu/order/provider/delete}">
-<p>Enter the tax identification number to delete the supplier </p>
-<input th:type="text" th:name="nip" placeholder="nip"></input>
-<button type="submit">Delete</button>
-</form>
-
-
-<p>Providers</p>
-<table>
+<div style="position: fixed; right: -18%; top 10%; width: 100%; text-align: center;">
+	<h1 style="
+	position: absolute;
+	right: 45%;
+	background: rgba(255, 255, 255, .6);
+	border: none;
+	padding: 15px 32px; display: inline-block;
+	font-size: 32px;
+	margin: 4px 2px;
+	width: 20px auto; border-radius: 8px;
+	border: 3px solid #000000;">
+		Dostawcy</h1>
+		
+<table style="background: rgba(255, 255, 255, .6);">
   <tr>
-    <td>Company Name</td>
-     <td>Adress</td>
+    <td>Nazwa firmy</td>
+     <td>Adres</td>
       <td>Email</td>
-       <td>Telephone</td>
+       <td>Telefon</td>
         <td>NIP</td>
          <td>REGON</td>
   </tr>
@@ -85,6 +43,58 @@
   </tr>
 </table>
 
+
+<form th:method="post" th:action="@{/menu/order/provider/delete}" style="position: relative; right: -32%; top 10%; width: 30%; background: rgba(255, 255, 255, .6);">
+<h5>Wprowadź NIP aby usunąć dostawcę</h5>
+
+ <ul th:each="message: ${messages}">
+   <li style="color:#bf4040" th:text="${message}" class="ui error message">
+</ul>
+
+<input th:type="text" th:name="nip" placeholder="NIP" style="position: absolute;left: 32%;"></input>
+<br /><br />
+<button th:type="submit">Usuń dostawcę</button>
+</form>
+
+</div>
+
+<form th:method="post" th:action="@{/menu/order/provider/create}" th:object="${materialProvider}" style="background: rgba(255, 255, 255, .6);">
+<h2>Wprowadź dane dla nowego dostawcy</h2>
+
+
+<p>Nazwa nowego dostawcy</p>
+<input th:type="text" th:field="*{companyName}" placeholder="Nazwa"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('companyName')}" th:errors="*{companyName}">errors</p>
+
+<p>Adres nowego dostawcy</p>
+<input th:type="text" th:field="*{adress}" placeholder="Adres"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}">errors</p>
+
+<p>E-mail nowego dostawcy</p>
+<input th:type="text"  th:field="*{email}" placeholder="E-mail"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('email')}" th:errors="${materialProvider.email}">errors</p>
+
+<p>Telefon nowego dostawcy</p>
+<input th:type="text" th:field="*{number}" placeholder="Telefon"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">error</p>
+
+<p>NIP nowego dostawcy</p>
+<input th:type="text" th:field="*{nip}" placeholder="NIP"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('nip')}" th:errors="*{nip}">error</p>
+
+<p>REGON nowego dostawcy</p>
+<input th:type="text" th:field="*{regon}" placeholder="REGON"></input>
+<p style="color:red;" th:if="${#fields.hasErrors('nip')}" th:errors="*{regon}">error</p>
+
+<div style="text-align: center;">
+	<button class="button" th:type="submit">Zatwierdź dane nowego dostawcy</button>
+</div>
+<br />
+<div style="text-align: center;">
+	<button class="button" th:type="reset">Wyczyść</button>
+</div>
+
+</form>
 
 </body>
 </html>

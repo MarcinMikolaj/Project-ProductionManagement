@@ -10,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import javax.persistence.OneToMany;
-import javax.persistence.ManyToMany;
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 
 import org.hibernate.annotations.LazyCollection;
@@ -26,8 +24,23 @@ import java.util.ArrayList;
 import project.entities.tools.Drill;
 import project.entities.tools.ScrewTap;
 import project.entities.tools.LatheKnifeCutter;
-import project.entities.execution.Project;
 
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+
+//Lombok
+@NoArgsConstructor()
+@AllArgsConstructor()
+@EqualsAndHashCode
+@Getter(AccessLevel.PUBLIC)
+@Setter(AccessLevel.PUBLIC)
+@ToString(onlyExplicitlyIncluded = true)
+//Hibernate
 @Entity
 @Table(name = "employee")
 @NamedQueries({
@@ -41,8 +54,11 @@ public class Employee implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "employee_id")
+	@ToString.Include
 	private Long id;
+	@ToString.Include
 	private String identificator;
+	@ToString.Include
 	private String position;
 	
 	@ElementCollection
@@ -60,78 +76,10 @@ public class Employee implements Serializable {
 	@LazyCollection(LazyCollectionOption.TRUE)
 	private List<LatheKnifeCutter> latheKnifeCutterOwned = new ArrayList<LatheKnifeCutter>();
 
-	//@ElementCollection
-	//@ManyToMany(mappedBy = "assignedEmployees", cascade=CascadeType.ALL)
-	//@LazyCollection(LazyCollectionOption.TRUE)
-	//private List<Project> assignedProjects = new ArrayList<Project>();
-	
 	public Employee(String identificator, String position) {
 		super();
 		this.identificator = identificator;
 		this.position = position;
-	}
-	
-	public Employee() {};
-	
-	public Long getId() {
-		return id;
-	}
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getIdentificator() {
-		return identificator;
-	}
-	
-	public void setIdentificator(String identificator) {
-		this.identificator = identificator;
-	}
-	
-	public String getPosition() {
-		return position;
-	}
-	
-	public void setPosition(String position) {
-		this.position = position;
-	}
-	
-	public List<Drill> getDrillOwned() {
-		return drillOwned;
-	}
-	
-	public void setDrillOwned(List<Drill> drillOwned) {
-		this.drillOwned = drillOwned;
-	}
-	
-	public List<ScrewTap> getScrewTapOwned(){
-		return screwTapOwned;
-	}
-	
-	public void setScrewTapOwned(List<ScrewTap> screwTapOwned) {
-		this.screwTapOwned = screwTapOwned;
-	}
-		
-	public List<LatheKnifeCutter> getLatheKnifeCutterOwned() {
-		return latheKnifeCutterOwned;
-	}
-
-	public void setLatheKnifeCutterOwned(List<LatheKnifeCutter> latheKnifeCutterOwned) {
-		this.latheKnifeCutterOwned = latheKnifeCutterOwned;
-	}
-	
-	//public List<Project> getAssignedProjects() {
-	//	return assignedProjects;
-	//}
-
-	//public void setAssignedProjects(List<Project> assignedProjects) {
-	//	this.assignedProjects = assignedProjects;
-	//}
-
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", identificator=" + identificator + ", position=" + position + "]";
 	}
 	
 }

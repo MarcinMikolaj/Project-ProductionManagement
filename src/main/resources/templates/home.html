@@ -5,6 +5,7 @@
 <title>Home</title>
 <link th:href="@{css/home_template.css}" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -12,16 +13,71 @@
 <br></br>
 
 <ul>
-<li><a class="active" th:href="@{/}"><i class="fa fa-fw fa-home"></i>HOME</a></li>
-<li><a th:href="@{/}"><i class="fa fa-graduation-cap" aria-hidden="true"></i>ABOUT APPLICATION</a></li>
-<li><a th:href="@{/toolRoom}"><i class="fa fa-gavel" aria-hidden="true"></i>TOOL ROOM</a></li>
-<li><a th:href="@{/order/menu}"><i class="fa fa-cube" aria-hidden="true"></i>ORDER</a></li>
-<li><a th:href="@{/projectManagement}"><i class="fa fa-file-powerpoint-o"></i>PROJECT MANAGER</a></li>
-<li><a th:href="@{/contact}"><i class="fa fa-envelope-o" aria-hidden="true"></i>CONTACT</a></li>
-<li><a th:href="@{/register}"><i class="fa fa-group"></i>ADD NEW USER</a></li>
-<li><a th:href="@{/register}"><i class="fa fa-fw fa-user"></i>LOG OUT</a></li>
+<li><a class="active" href="@{/}"><i class="fa fa-fw fa-home"></i>Home</a></li>
+<li><a th:href="@{/}"><i class="fa fa-graduation-cap" aria-hidden="true"></i>O aplikcaji</a></li>
+<li><a th:href="@{/toolRoom}"><i class="fa fa-gavel" aria-hidden="true"></i>Narzędziownia</a></li>
+<li><a th:href="@{/order/menu}"><i class="fa fa-cube" aria-hidden="true"></i>Zamówienia</a></li>
+<li><a th:href="@{/projectManagement}"><i class="fa fa-file-powerpoint-o"></i>Zarządzanie projektem</a></li>
+<li><a th:href="@{/contact}"><i class="fa fa-envelope-o" aria-hidden="true"></i>Kontakt</a></li>
+<li><a th:href="@{/register}"><i class="fa fa-group"></i>Utwórz konto</a></li>
+<li><a th:href="@{/register}"><i class="fa fa-fw fa-user"></i>Wyloguj się</a></li>
 </ul>
 
+<div class="textbox0">
+<p>Aplikacja została stworzona w celu uproszczenia zarządzania produkcją wyrobów wytworzonych
+w wyniku obróbki toczenia cnc, oferuje ona takie funkcjonalności jak dostęp do narzedziowni, możliwość
+zamawiania dostaw materiałowych, zarządzanie projektami. Dostępny jest równierz formularz kontaktowy w celu zgłaszania 
+np. problemów <br><br>
+</p>
+</div>
+
+<div class="textbox1">
+<p>
+1. Zamówienia <br>
+- tworzenie nowych zamówień na podctawie ofery dostawców. <br>
+- sprawdzanie listy aktualnych zamówień. <br>
+- zarządzanie dostawcami materiałów oraz oferowanymi przez nich materiałami w celu szybkiej możliwości tworzenia zamówień. <br> 
+- możliwość śledzenia materiałów w magazynie, dodawanie materiałów z zrealizowanych zamówień oraz ich usuwanie. <br>
+</p>
+</div>
+
+<div class="textbox2">
+<p>
+2. Narzędziownia <br>
+- możliwość wprowadzania nowych narzędzi oraz ich aktualizacji. <br>
+- wyświetlenie narzędzi dostępnych w narzędziowni
+- możliwość wyporzyczania narzędzi przez pracowników oraz ich oddawanie. <br>
+</p>
+</div>
+
+<div class="textbox3">
+<p>
+3. Uprawnienia urzytkowników: <br>
+- możliwość 3 etapowej rejestracji dla nowych urzytkowników <br>
+- w celu dostępu do aplikacji i jej funkcjonalności trzeba sie zalogować.
+- dostęp do narzędziowni oraz zamównień mają urzytkownicy z odpowiednimi uprawnieniami. <br>
+</p>
+</div>
+
+<div class="textbox4">
+<p>
+4. Zarządzanie projektami: <br>
+- możliwość utworzenia nowego projektu dla wykonywanego wyrobu/wyrobów. <br>
+- możliwość przypisania kierownika nadzorującego do projektu.
+- możliwość przypisania pracownkiów do projektu.
+- możliwość przypisania odpowiednich materiałów z magazynu dla projektu. <br>
+</p>
+</div>
+
+<div class="tw">
+<p>
+*** Twórcy projektu *** <br><br>
+ Miłosz Madej <br>
+ Marcin Mikołajczyk<br>
+ Mateusz Marcisz <br>
+ Patryk Łacny <br>
+</p>
+</div>
 
 </body>
 </html>

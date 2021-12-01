@@ -13,10 +13,28 @@ import javax.persistence.FetchType;
 
 import project.entities.Employee;
 
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+//Lombok
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@Getter
+@Setter
+@ToString
+//Hibernate
 @Entity
 @Table(name = "drill")
 public class Drill implements Serializable {
 	
+	@Getter(AccessLevel.NONE)
+	@Setter(AccessLevel.NONE)
 	private static final long serialVersionUID = 1000L;
 	
 	@Id
@@ -36,10 +54,8 @@ public class Drill implements Serializable {
     private boolean quickClampingSystem;
     
     @OneToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private Employee employee;
-    
-    
-    public Drill() {}
 
 	public Drill(String identificator, int quantity, String totalLength, String workingLength, String diameter,
 			String apexAngle, String destiny, String materialExecution, String handleType,
@@ -54,122 +70,9 @@ public class Drill implements Serializable {
 		this.destiny = destiny;
 		this.materialExecution = materialExecution;
 		this.handleType = handleType;
-		this.quickClampingSystem = quickClampingSystem;
-		
+		this.quickClampingSystem = quickClampingSystem;	
 		this.itIsOnLoad = false;
 		this.employee = null;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getIdentificator() {
-		return identificator;
-	}
-
-	public void setIdentificator(String identificator) {
-		this.identificator = identificator;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public String getTotalLength() {
-		return totalLength;
-	}
-
-	public void setTotalLength(String totalLength) {
-		this.totalLength = totalLength;
-	}
-
-	public String getWorkingLength() {
-		return workingLength;
-	}
-
-	public void setWorkingLength(String workingLength) {
-		this.workingLength = workingLength;
-	}
-
-	public String getDiameter() {
-		return diameter;
-	}
-
-	public void setDiameter(String diameter) {
-		this.diameter = diameter;
-	}
-
-	public String getApexAngle() {
-		return apexAngle;
-	}
-
-	public void setApexAngle(String apexAngle) {
-		this.apexAngle = apexAngle;
-	}
-
-	public String getDestiny() {
-		return destiny;
-	}
-
-	public void setDestiny(String destiny) {
-		this.destiny = destiny;
-	}
-
-	public String getMaterialExecution() {
-		return materialExecution;
-	}
-
-	public void setMaterialExecution(String materialExecution) {
-		this.materialExecution = materialExecution;
-	}
-
-	public String getHandleType() {
-		return handleType;
-	}
-
-	public void setHandleType(String handleType) {
-		this.handleType = handleType;
-	}
-
-	public boolean isQuickClampingSystem() {
-		return quickClampingSystem;
-	}
-
-	public void setQuickClampingSystem(boolean quickClampingSystem) {
-		this.quickClampingSystem = quickClampingSystem;
-	}
-	
-	public boolean getItIsOnLoad() {
-		return itIsOnLoad;
-	}
-	
-	public void setItIsOnLoad(boolean itIsOnLoad) {
-		this.itIsOnLoad = itIsOnLoad;
-	}
-	
-	public Employee getEmployee() {
-		return employee;
-	}
-	
-	public void setEmpolyee(Employee employee) {
-		this.employee = employee;
-	}
-
-	@Override
-	public String toString() {
-		return "Drill [id=" + id + ", identificator=" + identificator + ", quantity=" + quantity + ", totalLength="
-				+ totalLength + ", workingLength=" + workingLength + ", diameter=" + diameter + ", apexAngle="
-				+ apexAngle + ", destiny=" + destiny + ", materialExecution=" + materialExecution + ", handleType="
-				+ handleType + ", quickClampingSystem=" + quickClampingSystem + "]";
-	}
-    
+  
 }

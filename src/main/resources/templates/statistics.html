@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{../css/st_template.css}" type="text/css" />
+</head>
+<body>
+
+<h1 style="color: white;">Panel</h1>
+<a th:href="@{/}">Home</a>
+
+<form th:method="post" th:action="@{/toolRoom/statistics/find}">
+<input th:name="name" th:type="text"></input>
+<input th:name="lastName" th:type="text"></input>
+<button type="submit">Szukaj</button>
+</form>
+
+<p style="color: white;">Wyporzczone wiertła</p>
+
+
+
+
+<div class="row">
+ <div class="table-responsive costum-table-dark">
+  <table class="table">
+   <thead>
+      <tr>
+         <th>&nbsp;&nbsp;&nbsp;Identyfikator</th>
+         <th>Dł. całkowita</th>
+         <th>Dł. robocza</th>
+         <th>Średnica</th>
+         <th>Kąt wierzchołka</th>
+         <th>Przeznaczenie</th>
+         <th>Materiał</th>
+         <th>Typ uchwytu</th>
+      </tr>
+  </thead>
+ <tbody>
+<tr th:each="drill: ${drillList}">
+  <td th:text="${drill.identificator}">Identyfikator</td>
+  <td th:text="${drill.totalLength}">Dł. całkowita</td>
+  <td th:text="${drill.workingLength}">Dł. robocza</td>
+  <td th:text="${drill.diameter}">Średnica</td>
+  <td th:text="${drill.apexAngle}">Kąt wierzchołka</td>
+  <td th:text="${drill.destiny}">Przeznaczenie</td>
+  <td th:text="${drill.materialExecution}">Materiał wykonania</td>
+  <td th:text="${drill.handleType}">Typ uchwytu</td>
+</tr>
+ </tbody>
+ 
+  </table>
+ </div>
+</div>
+
+
+<p style="color: white;">Wyporzczone Gwintowniki</p>
+<div class="row">
+ <div class="table-responsive costum-table-dark">
+  <table class="table">
+   <thead>
+<tr>
+  <th>&nbsp;&nbsp;&nbsp;Identyfikator</th>
+  <th>Marka</th>
+  <th>Dł. całkowita</th>
+  <th>Dł. robocza</th>
+  <th>Gwint</th>
+  <th>Typ</th>
+  <th>Twardość</th>
+  <th>Wykonanie</th>
+</tr>
+ </thead>
+ <tbody>
+<tr th:each="screwTap: ${screwTapList}">
+  <td th:text="${screwTap.identificator}"></td>
+  <td th:text="${screwTap.brand}"></td>
+  <td th:text="${screwTap.totalLength}"></td>
+  <td th:text="${screwTap.workongLength}"></td>
+  <td th:text="${screwTap.thread}"></td>
+  <td th:text="${screwTap.threadType}"></td>
+  <td th:text="${screwTap.hardness}"></td>
+  <td th:text="${screwTap.materialExecution}"></td>
+</tr>
+</tbody>
+  </table>
+ </div>
+</div>
+
+<p style="color: white;">Wyporzczone Noże tokarskie</p>
+<div class="row">
+ <div class="table-responsive costum-table-dark">
+  <table class="table">
+   <thead>
+<tr>
+  <th>&nbsp;&nbsp;&nbsp;Identyfikator</th>
+  <th>Marka</th>
+  <th>Nazwa norza</th>
+  <th>Rodzaj</th>
+  <th>Długość całkowita</th>
+  <th>Wysokość uchwytu</th>
+</tr>
+ </thead>
+ <tbody>
+<tr th:each="knife: ${latheKnifeCutterList}">
+  <td th:text="${knife.identificator}"></td>
+  <td th:text="${knife.brand}"></td>
+  <td th:text="${knife.name}"></td>
+  <td th:text="${knife.kindOfKnife}"></td>
+  <td th:text="${knife.totalLength}"></td>
+  <td th:text=${knife.handleHeight}></td>
+</tr>
+</tbody>
+  </table>
+ </div>
+</div>
+
+
+
+</body>
+</html>

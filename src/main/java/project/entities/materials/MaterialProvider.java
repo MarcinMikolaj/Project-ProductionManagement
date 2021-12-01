@@ -1,4 +1,4 @@
-package project.test.function;
+package project.entities.materials;
 
 import java.io.Serializable;
 
@@ -10,8 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-
 import javax.persistence.OneToMany;
+import javax.persistence.ElementCollection;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -35,7 +38,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
+@Setter
 @ToString
 //**Hibernate**
 @Entity
@@ -81,8 +84,16 @@ public class MaterialProvider implements Serializable {
 	private String regon;
 	
 	@OneToMany
+	@ElementCollection
+	@LazyCollection(LazyCollectionOption.TRUE)
 	@ToString.Exclude
-	private List<SteelPipe> steelPipeList = new ArrayList<SteelPipe>();
+	private List<Pipe> steelPipeList = new ArrayList<Pipe>();
+	
+	@OneToMany
+	@ElementCollection
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@ToString.Exclude
+	private List<Rod> rodList = new ArrayList<Rod>();
 
 	public MaterialProvider(@NotBlank(message = "The field is required") String companyName,
 			@NotBlank(message = "The field is required") String adress, @Email String email,

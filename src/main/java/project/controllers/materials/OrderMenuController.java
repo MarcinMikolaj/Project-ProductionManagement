@@ -1,4 +1,4 @@
-package project.controllers.orders;
+package project.controllers.materials;
 
 import org.springframework.stereotype.Controller;
 

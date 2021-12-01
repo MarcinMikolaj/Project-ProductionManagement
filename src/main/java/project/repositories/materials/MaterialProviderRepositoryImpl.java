@@ -1,4 +1,4 @@
-package project.test.function;
+package project.repositories.materials;
 
 import org.springframework.stereotype.Repository;
 
@@ -12,8 +12,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import javax.persistence.Query;
 
+import project.entities.materials.MaterialProvider;
 import project.repositories.SuperRepositoryImpl;
-
 import lombok.Cleanup;
 
 @Repository
@@ -88,8 +88,7 @@ public class MaterialProviderRepositoryImpl extends SuperRepositoryImpl<Material
 		entityTransaction.begin();
 		boolean result = (boolean) query.getSingleResult();
 		entityTransaction.commit();
-		entityManager.close();
-		
+		entityManager.close();		
 		return result;
 	}
 

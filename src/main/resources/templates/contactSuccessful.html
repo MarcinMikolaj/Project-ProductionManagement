@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<link href="../static/css/contactSuccessful_szablon.css" th:href="@{/css/contactSuccessful_szablon.css}"  rel="stylesheet" />
-<title>Successful</title>
+<html>
+<head xmlns:th="http://thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<link href="../css/successful_szablon.css" th:href="@{/css/successful_szablon.css}"  rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Successful</title>
 </head>
 
-<body style=" background-color: #F5F5F5;">
+<body>
 
 <div class="container">
-<img class="image" src="../img/icon.png" alt="Tu powinna być ikona"/>
-<br></br>
-<h2 style="text-align:center; font-size:40px">Message was send Successful</h2>
-<p  style="text-align:center; font-size:20px">Wiadomość zostanie rozpatrzona, skonatkujemy sie z tobą przez podany adres email</p>
-<button class="button"><a th:href="@{/}" class="a">Home</a></button>
+<h1 class="t">Udało się wysłać wiadomość</h1>
+<button class="button" style="vertical-align:middle"><span><a  style="text-decoration: none;" class="h" th:href="@{/}"><i class="fa fa-home"></i>Wróć do strony głównej</a></span></button>
 </div>
-
-
-
 </body>
 </html>
+

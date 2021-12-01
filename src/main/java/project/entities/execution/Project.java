@@ -53,11 +53,6 @@ public class Project implements Serializable {
 	@OneToOne(fetch = FetchType.LAZY)
 	private Manager manager;
 	
-	///@JoinTable(
-	//        name = "assigned_employees_project_join_table",
-	//        joinColumns = @JoinColumn(name = "project_id_j"),
-	 //       inverseJoinColumns = @JoinColumn(name = "employee_id_j")
-	 //  )	
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "project_manager_add_employess",
     joinColumns = {@JoinColumn(name="id_project", referencedColumnName="project_id")},

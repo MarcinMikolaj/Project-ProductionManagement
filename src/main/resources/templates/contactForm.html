@@ -2,49 +2,51 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link href="../static/css/contactForm_szablon.css" th:href="@{/css/contactForm_szablon.css}"  rel="stylesheet" />
+<link th:href="@{../css/contactForm_szablon.css}"  rel="stylesheet" />
 <title>Formularz kontaktowy</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Abhaya+Libre&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 </head>
 
 <body style=" background-color: #F5F5F5;">
 
 <div class="container">
 
-<h1 style="font-family:cursive;">Formularz kontaktowy</h1>
+<h1 style="text-align: center;">Formularz kontaktowy</h1>
 
-<p style="font-family:cursive; font-size:11px;">(Wiadomość zostanie wysłana na adres marcin09876a2@gmail.com)</p>
+<p>(Wiadomość zostanie wysłana na adres serwisu - marcin09876a2@gmail.com)</p>
 
 <form method="post" th:method="post" th:action="@{/contact}" th:object="${email}" enctype="multipart/form-data">
 
 <div class="inputContainer">
 
 <div>
-<label style="font-family:cursive;" for="emailL">Email</label>
-<input th:field="*{adres}" class="input" type="email" id="emailL" placeholder="..." aria-describedby="emailS" ></input>
+<label for="emailL">&nbsp;&nbsp;Email</label>
+<input th:field="*{adres}" class="input" type="email" id="emailL" placeholder="" aria-describedby="emailS" ></input>
 <small style="font-family:cursive; font-size:11px;" id="emailS">Podaj adres przypisany do twojego konta w servisie</small>
 </div>
 
 <br></br>
 
 <div>
-<label style="font-family:cursive;" for="tematL">Temat</label>
-<input th:field="*{title}" class="input" type="text" id="temaL" placeholder="..." aria-describedby="ts"></input>
+<label for="tematL">&nbsp;&nbsp;Temat</label>
+<input th:field="*{title}" class="input" type="text" id="temaL" placeholder="" aria-describedby="ts"></input>
 <small style="font-family:cursive; font-size:11px;" id="ts">Temat twojej wiadomości email</small>
 </div>
 
 <br></br>
 
 <div>
-<label style="font-family:cursive;" for="tr">Treść</label>
-<textarea th:field="*{text}" class="area" id="trescL" placeholder="..." aria-describedby="trescS"></textarea>
+<label for="tr">&nbsp;&nbsp;Treść</label>
+<textarea th:field="*{text}" class="area" id="trescL" placeholder="" aria-describedby="trescS"></textarea>
 <small style="font-family:cursive; font-size:11px;" id="tr">Treść wiadomości email</small>
 </div>
 
 <br></br>
 
 <div>
-<label style="font-family:cursive;" for="zalacznikL">Twoje Załączniki</label>
+<label for="zalacznikL">&nbsp;&nbsp;Twoje Załączniki</label>
 <input th:name="multipartFile" class="file" type="file" id="zalacznikL" ></input>
 </div>
 
@@ -52,10 +54,9 @@
 
 <br></br>
 
-<p style="font-family:cursive; font-size:11px;">Kilkając wyślij wyrażasz zgodę na przetwarzanie danych osobowych w celu przesłania odpowiedzi na mój adres e-mail podany powyżej w formularzu kontaktowym.</p>
+<p style="font-size:11px;">&nbsp;&nbsp;Kilkając wyślij wyrażasz zgodę na przetwarzanie danych osobowych w celu przesłania odpowiedzi na adres e-mail.</p>
 
-<button class="button" style="color:#2E8B57;" type="submit"><span>Wyślij</span></button>
-<button class="button" type="reset"><span>Wyczyść</span></button>
+<button class="button" type="submit"><span>Wyślij</span></button>
 <button class="button" ><span><a style="text-decoration:none; color:#B22222;" th:href="@{/}">Anuluj</a></span></button>
 
 </form>

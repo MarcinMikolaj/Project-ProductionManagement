@@ -61,11 +61,31 @@
 </form>
 </div>
 
-<p>Dostępne wiertła</p>
+<p style="color: white; font-size: 24px;">Dostępne wiertła</p>
 
-<ul>
-<li th:each="drill: ${drillList}"  th:text="|${drill.identificator} - ${drill.totalLength} - ${drill.workingLength} - ${drill.diameter} - ${drill.apexAngle} - ${drill.destiny} - ${drill.materialExecution} - ${drill.handleType}|">Drill</li>
-</ul>
+<table>
+<tr>
+  <td>Identyfikator</td>
+  <td>Dł. całkowita</td>
+  <td>Dł. robocza</td>
+  <td>Średnica</td>
+  <td>Kąt wierzchołka</td>
+  <td>Przeznaczenie</td>
+  <td>Materiał</td>
+  <td>Typ uchwytu</td>
+</tr>
+
+<tr th:each="drill: ${drillList}">
+  <td th:text="${drill.identificator}">Identyfikator</td>
+  <td th:text="${drill.totalLength}">Dł. całkowita</td>
+  <td th:text="${drill.workingLength}">Dł. robocza</td>
+  <td th:text="${drill.diameter}">Średnica</td>
+  <td th:text="${drill.apexAngle}">Kąt wierzchołka</td>
+  <td th:text="${drill.destiny}">Przeznaczenie</td>
+  <td th:text="${drill.materialExecution}">Materiał wykonania</td>
+  <td th:text="${drill.handleType}">Typ uchwytu</td>
+</tr>
+</table>
 
 </body>
 </html>

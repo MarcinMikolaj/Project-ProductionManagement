@@ -20,19 +20,13 @@ import project.entities.Employee;
 public class ExecutionService {
 	
 	private ProjectRepositoryJPA projectRepositoryJPA;
-	//private ManagerRepository managerRepository;
 	private AccountService accountService;
 	
 	@Autowired
 	public void setProjectRepositoryJPA(ProjectRepositoryJPA projectRepositoryJPA) {
 		this.projectRepositoryJPA = projectRepositoryJPA;
 	}
-	
-	//@Autowired
-	//public void setManagerRepository(ManagerRepository managerRepository) {
-	//	this.managerRepository = managerRepository;
-	//}
-	
+		
 	@Autowired
 	public void setAccountService(AccountService accountService) {
 			this.accountService = accountService;	
